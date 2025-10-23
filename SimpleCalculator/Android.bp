@@ -2,6 +2,7 @@ cc_binary {
     name: "simple_calculator",
     srcs: ["app.cpp"],
     shared_libs: ["simple_libmath"],
+    include_dirs: ["packages/apps/SimpleCalculator/libmath/inc"],
     vendor: true,
     strip: {
         none: true,
