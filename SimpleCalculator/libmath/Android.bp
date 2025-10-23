@@ -1,0 +1,9 @@
+cc_library_shared {
+    name: "simple_libmath",
+    srcs: ["math.cpp"],
+    export_include_dirs: ["."],
+    vendor: true,
+    strip: {
+        none: true,
+    },
+}
