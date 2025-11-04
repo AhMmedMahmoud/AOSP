@@ -9,8 +9,8 @@
 2. Install additional packages:
 
 ```
-**sudo apt-get install dosfstools e2fsprogs fdisk kpartx mtools rsync
-**```
+sudo apt-get install dosfstools e2fsprogs fdisk kpartx mtools rsync
+```
 
 3. Initialize repo:
 
@@ -31,7 +31,7 @@ repo sync -j8
 . build/envsetup.sh
 ```
 
-6. Select the device (`rpi4` or `rpi5`) and build target (tablet UI, `tv` for Android TV, or `car` for Android Automotive):
+6. Select the device (`rpi4` or `rpi5`) and build target (tablet UI, `tv` for Android TV, or `car` for Android Automotive) (choose only one):
 
 ``` 
 lunch aosp_rpi4-bp2a-userdebug
@@ -39,21 +39,19 @@ lunch aosp_rpi4_tv-bp2a-userdebug
 lunch aosp_rpi4_car-bp2a-userdebug
 lunch aosp_rpi5-bp2a-userdebug
 lunch aosp_rpi5_tv-bp2a-userdebug
-**lunch aosp_rpi5_car-bp2a-userdebug**
+lunch aosp_rpi5_car-bp2a-userdebug
 ```
 
 7. Compile:
 
 ```
-make bootimage systemimage vendorimage -j$(nproc)
+make bootimage systemimage vendorimage -j8
 ```
 
-8. Make flashable image for the device (`rpi4` or `rpi5`):
+8. Make flashable image for the device (`rpi4` or `rpi5`) (choose only one):
 
 ```
 ./rpi4-mkimg.sh
-```
-```
 ./rpi5-mkimg.sh
 ```
 
