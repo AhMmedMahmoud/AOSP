@@ -1,0 +1,35 @@
+cc_binary {
+    name: "example_service",
+    srcs: ["native/src/*.cpp"],
+    local_include_dirs: ["native/inc"],
+    device_specific: false,
+    vendor: true,
+    init_rc: ["example_service.rc"],
+    shared_libs: [
+        "liblog",
+        "libutils",
+        "libbase",
+        "libbinder_ndk",
+        "example.service.api-ndk",
+    ],
+}
+
+aidl_interface {
+    name: "example.service.api",
+    vendor_available: true,
+    srcs: ["interfaces/**/*.aidl"],
+    local_include_dir: "interfaces",
+    unstable: true,
+    backend: {
+        java: {
+            enabled: true,
+            platform_apis: true,
+        },
+        cpp: {
+            enabled: true,
+        },
+        ndk: {
+            enabled: true,
+        },
+    },
+}

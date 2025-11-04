@@ -1,0 +1,7 @@
+cc_library_shared {
+    name: "lib_sensor",
+    srcs: ["src/*.cpp"],
+    export_include_dirs: ["inc"],
+    device_specific: false,
+    vendor: true,
+}

@@ -1,0 +1,7 @@
+service temperature_service /vendor/bin/temperature_service
+	class hal
+	user system
+	group system
+
+on boot
+	start temperature_service

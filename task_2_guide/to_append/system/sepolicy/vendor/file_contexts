@@ -1,0 +1,1 @@
+/vendor/bin/example_service      u:object_r:example_service_exec:s0

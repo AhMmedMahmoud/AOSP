@@ -1,0 +1,6 @@
+<manifest version="1.0" type="device">
+    <hal format="aidl">
+        <name>example.service.api</name>
+        <fqname>IExampleService/default</fqname>
+    </hal>
+</manifest>

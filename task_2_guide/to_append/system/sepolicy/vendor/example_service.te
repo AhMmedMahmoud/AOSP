@@ -1,0 +1,6 @@
+type example_service_exec, exec_type, file_type, vendor_file_type;
+
+allow example_service example_service_api:service_manager add;
+allow example_service servicemanager:binder { call transfer };
+
+init_daemon_domain(example_service)

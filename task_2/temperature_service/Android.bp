@@ -1,0 +1,36 @@
+cc_binary {
+    name: "temperature_service",
+    srcs: ["native/src/*.cpp"],
+    local_include_dirs: ["native/inc"],
+    device_specific: false,
+    vendor: true,
+    init_rc: ["temperature_service.rc"],
+    shared_libs: [
+        "liblog",
+        "libutils",
+        "libbase",
+        "libbinder_ndk",
+        "lib_sensor",
+        "temperature.service.api-ndk",
+    ],
+}
+
+aidl_interface {
+    name: "temperature.service.api",
+    vendor_available: true,
+    srcs: ["interfaces/**/*.aidl"],
+    local_include_dir: "interfaces",
+    unstable: true,
+    backend: {
+        java: {
+            enabled: true,
+            platform_apis: true,
+        },
+        cpp: {
+            enabled: true,
+        },
+        ndk: {
+            enabled: true,
+        },
+    },
+}

@@ -1,0 +1,9 @@
+cc_library_shared {
+    name: "math_lib",
+    srcs: ["src/*.cpp"],
+    export_include_dirs: ["inc"],
+    vendor: true,
+    strip: {
+        none: true,
+    },
+}

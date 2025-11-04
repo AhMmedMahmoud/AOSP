@@ -1,0 +1,9 @@
+cc_binary {
+    name: "simple_calculator",
+    srcs: ["app.cpp"],
+    shared_libs: ["math_lib"],
+    vendor: true,
+    strip: {
+        none: true,
+    },
+}
