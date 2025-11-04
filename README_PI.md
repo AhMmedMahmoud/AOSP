@@ -9,8 +9,8 @@
 2. Install additional packages:
 
 ```
-sudo apt-get install dosfstools e2fsprogs fdisk kpartx mtools rsync
-```
+**sudo apt-get install dosfstools e2fsprogs fdisk kpartx mtools rsync
+**```
 
 3. Initialize repo:
 
@@ -37,12 +37,9 @@ repo sync -j8
 lunch aosp_rpi4-bp2a-userdebug
 lunch aosp_rpi4_tv-bp2a-userdebug
 lunch aosp_rpi4_car-bp2a-userdebug
-```
-
-```
 lunch aosp_rpi5-bp2a-userdebug
 lunch aosp_rpi5_tv-bp2a-userdebug
-lunch aosp_rpi5_car-bp2a-userdebug
+**lunch aosp_rpi5_car-bp2a-userdebug**
 ```
 
 7. Compile:
