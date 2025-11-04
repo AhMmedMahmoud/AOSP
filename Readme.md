@@ -1,4 +1,4 @@
-# AOSP
+# AOSP For Default Targets Supported by Google
 
 ## Install all the required packages
 ```bash
