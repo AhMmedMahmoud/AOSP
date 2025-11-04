@@ -33,22 +33,15 @@ repo sync -j8
 
 6. Select the device (`rpi4` or `rpi5`) and build target (tablet UI, `tv` for Android TV, or `car` for Android Automotive):
 
-```
+``` 
 lunch aosp_rpi4-bp2a-userdebug
-```
-```
 lunch aosp_rpi4_tv-bp2a-userdebug
-```
-```
 lunch aosp_rpi4_car-bp2a-userdebug
 ```
+
 ```
 lunch aosp_rpi5-bp2a-userdebug
-```
-```
 lunch aosp_rpi5_tv-bp2a-userdebug
-```
-```
 lunch aosp_rpi5_car-bp2a-userdebug
 ```
 
