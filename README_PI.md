@@ -1,4 +1,4 @@
-### OSP Android 16 for Raspberry Pi 4 and Raspberry Pi 5.
+### AOSP Android 16 for Raspberry Pi 4 and Raspberry Pi 5.
 
 ***
 
