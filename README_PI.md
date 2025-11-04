@@ -2,7 +2,7 @@
 
 ***
 
-### How to build (Ubuntu 22.04 LTS):
+### Building on Ubuntu 22.04 LTS:
 
 1. Establish [Android build environment](https://source.android.com/docs/setup/start/requirements).
 
