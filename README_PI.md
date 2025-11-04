@@ -22,7 +22,7 @@ curl -o .repo/local_manifests/manifest_brcm_rpi.xml -L https://raw.githubusercon
 4. Sync source code:
 
 ```
-repo sync
+repo sync -j8
 ```
 
 5. Setup Android build environment:
