@@ -1,0 +1,41 @@
+cc_library_static {
+    name: "libservices.core",
+	srcs: [
+	    ":java_cpp_mapping_sensor_task_native",
+    ],
+}
+
+cc_defaults {
+    name: "libservices.core-libs",
+	shared_libs: [
+		"android.app.sensortask-V2-ndk",
+    ],
+}
+
+filegroup {
+    name: "java_cpp_mapping_sensor_task_native",
+    srcs: [
+        "com_android_server_sensortask_SensorTaskService.cpp",
+    ],
+}
+
+cc_library_shared {
+    name: "libsensor_task_jni",
+    srcs: [
+        ":java_cpp_mapping_sensor_task_native",
+    ],
+    shared_libs: [
+        "liblog",
+        "libutils",
+        "libbase",
+        "libbinder_ndk",
+        "libnativehelper",
+        "libandroid_runtime",
+        "android.app.sensortask-V2-ndk",
+    ],
+    cflags: [
+        "-Wall",
+        "-Werror",
+        "-Wno-unused-parameter",
+    ]
+}
