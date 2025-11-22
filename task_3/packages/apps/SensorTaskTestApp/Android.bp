@@ -1,0 +1,8 @@
+android_app {
+    name: "SensorTaskTestApp",
+    srcs: ["src/**/*.java"],
+
+    platform_apis: true,
+    privileged: true,
+    certificate: "platform",
+}
