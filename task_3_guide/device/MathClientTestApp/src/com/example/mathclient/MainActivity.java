@@ -2,31 +2,43 @@ package com.example.mathclient;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
-import android.content.Context;
+
 import android.app.math.MathServiceManager;
+import android.content.Context;
 
 public class MainActivity extends Activity {
+
+    private static final String TAG = "MathTest";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         TextView tv = new TextView(this);
+        tv.setText("Running MathService Test…");
         setContentView(tv);
 
-        MathServiceManager math =
-            (MathServiceManager) getSystemService(Context.MATH_SERVICE);
+        MathServiceManager manager =
+        (MathServiceManager) getSystemService(Context.MATH_SERVICE);
 
-        if (math != null) {
-            tv.setText(
-                "Service Name: " + math.getServiceName() + "\n\n" +
-                "5 + 3 = " + math.add(5, 3) + "\n" +
-                "10 - 4 = " + math.sub(10, 4) + "\n" +
-                "3 × 7 = " + math.multiply(3, 7)
-            );
-        } else {
-            tv.setText("MathServiceManager = null (not running as priv-app?)");
-        }
+        int sum = manager.add(5, 3);
+        int subtract = manager.sub(5, 3);
+        int multiply = manager.multiply(5, 3);
+        String serviceName = manager.getServiceName();
+
+
+        update(tv, 
+            "Service Name: " + serviceName + "\n" +
+            "Result of Sum = " + sum + "\n" +
+            "Result of Subtract = " + subtract + "\n" +
+            "Result of Multiply = " + multiply + "\n"
+        );
+    }
+
+    private void update(TextView tv, String text) {
+        runOnUiThread(() -> tv.setText(text));
+        Log.i(TAG, text);
     }
 }
