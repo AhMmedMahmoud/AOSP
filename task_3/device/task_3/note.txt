@@ -13,9 +13,9 @@ versions : ["1"],
 croot
 
 system/tools/aidl/build/hash_gen.sh \
-    device/task_2/temperature_service/aidl_api/android.app.sensortask/1 \
+    device/task_3/temperature_service/aidl_api/android.app.sensortask/1 \
     latest-version \
-    device/task_2/temperature_service/aidl_api/android.app.sensortask/1/.hash
+    device/task_3/temperature_service/aidl_api/android.app.sensortask/1/.hash
 
 ----------------------------
 3- update apis
@@ -36,4 +36,5 @@ m android.app.sensortask-freeze-api -j 12
 6- adjust Android.bp and aidl_api\android.app.sensortask folder
 ----------------------------
 remove folder 1
+
 remove anything added in Android.bp automatically and just put versions : ["2"],
