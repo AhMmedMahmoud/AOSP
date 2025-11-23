@@ -2,6 +2,12 @@
 For stable aidl interfaces
 #=================================================================
 ----------------------------
+0- setup 
+----------------------------
+create folder aidl_api/android.app.sensortask/1
+copy *.aidl files inside aidl_api/android.app.sensortask/1
+
+----------------------------
 1- add in the Android.bp
 ----------------------------
 stability: "vintf",
@@ -35,6 +41,7 @@ m android.app.sensortask-freeze-api -j 12
 ----------------------------
 6- adjust Android.bp and aidl_api\android.app.sensortask folder
 ----------------------------
-remove folder 1
+remove folder aidl_api/android.app.sensortask/1
 
 remove anything added in Android.bp automatically and just put versions : ["2"],
+
