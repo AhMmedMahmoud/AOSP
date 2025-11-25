@@ -1,0 +1,37 @@
+flashing certain partition using adb
+--------------------------------------------
+adb reboot bootloader
+fastboot reboot fastboot
+fastboot flash system system.img
+
+remount the File System to be able to push or pull files
+--------------------------------------------
+adb root
+adb shell mount -o rw,remount /
+adb push arafa.txt /system/
+adb push SensorTaskTestApp.apk /system/priv-app/SensorTaskTestApp/
+adb push MathClientTestApp.apk /system/priv-app/MathClientTestApp/
+
+installing in specific partition
+--------------------------------------------
+vendor: false              --> vendor partition
+product_specific: false    --> product partition
+device_specific: false     --> odm partition
+system_ext_specific: false --> system_ext partition
+if we donot choose any partition, it will be installed in system partition
+
+m, mm, mmm commands
+---------------------------------------------
+m <module_name>                             : build certain module whatever the current location
+mm                                          : build the module at the current location
+mmm <path_of_module_relative_to_aosp_root>  : build the module at the given relative path 
+
+commands
+---------------------------------------------
+service list
+service call math 2 i32 6 i32 7       (2 is add function)
+logcat | grep temperature
+dmesg                                 (kernel logs / drivers messages)
+logcat                                (services logs)
+reboot
+adb shell <command>
