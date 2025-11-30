@@ -3,6 +3,9 @@
 This project implements an Android **Java System Service** that interacts with a **native (C++) system service** responsible for temperature and sensor readings. Communication is handled via **AIDL interfaces**.  
 The Java service acts as a client to the native layer and exposes a framework API for applications through Java-side AIDL interfaces and a Manager class.
 
+# Extra Work
+a JNI layer is implemented to map Java service calls directly to the corresponding C++ service calls.
+
 ------------------------------------------------------------
 📁 Folder Structure
 ------------------------------------------------------------
