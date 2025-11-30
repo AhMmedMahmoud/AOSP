@@ -67,6 +67,7 @@ The Java service acts as a client to the native layer and exposes a framework AP
     ├── AndroidManifest.xml
     └── src/com/example/sensortasktest/MainActivity.java
 
+
 ------------------------------------------------------------
 ⚠️ Common Issues & Fixes
 ------------------------------------------------------------
