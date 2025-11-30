@@ -6,7 +6,7 @@ The Java service acts as a client to the native layer and exposes a framework AP
 ------------------------------------------------------------
 📁 Folder Structure
 ------------------------------------------------------------
-
+``` bash
 .
 ├── device
 │   └── task_3
@@ -66,7 +66,7 @@ The Java service acts as a client to the native layer and exposes a framework AP
     ├── Android.bp
     ├── AndroidManifest.xml
     └── src/com/example/sensortasktest/MainActivity.java
-
+```
 
 ------------------------------------------------------------
 ⚠️ Common Issues & Fixes
