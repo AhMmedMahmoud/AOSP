@@ -94,15 +94,15 @@ Service instance not declared in vendor manifest.
 
 Takeaway:
 Add the AIDL HAL entry to vendor manifest:
-<hal format="aidl">
-    <name>temperature.service.api.ITemperatureService</name>
-    <version>1</version>
-    <interface>
-        <name>ITemperatureService</name>
-        <instance>default</instance>
-    </interface>
-</hal>
-
+``` bash
+<manifest version="1.0" type="device">
+    <hal format="aidl">
+        <name>android.app.sensortask</name>
+        <version>2</version>
+        <fqname>ITemperatureService/default</fqname>
+    </hal>
+</manifest>
+```
 ------------------------------------------------------------
 
 Issue 3:
