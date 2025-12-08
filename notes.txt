@@ -36,6 +36,7 @@ dmesg                                 (kernel logs / drivers messages)
 logcat                                (services logs)
 reboot
 adb shell <command>
+adb install -r CarSpeedDemo.apk
 
 how to know properity id
 ---------------------------------------------
