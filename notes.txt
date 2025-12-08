@@ -36,3 +36,50 @@ dmesg                                 (kernel logs / drivers messages)
 logcat                                (services logs)
 reboot
 adb shell <command>
+
+how to know properity id
+---------------------------------------------
+ID = 0x0207 | 0x10000000 | 0x00600000 | 0x01000000
+
+<AOSP-ROOT>/hardware/interfaces/automotive/vehicle/2.0/types.hal
+    enum VehiclePropertyType : int32_t {
+        STRING          = 0x00100000,
+        BOOLEAN         = 0x00200000,
+        INT32           = 0x00400000,
+        INT32_VEC       = 0x00410000,
+        INT64           = 0x00500000,
+        INT64_VEC       = 0x00510000,
+        FLOAT           = 0x00600000,
+        FLOAT_VEC       = 0x00610000,
+        BYTES           = 0x00700000,
+        MIXED           = 0x00e00000,
+        MASK            = 0x00ff0000
+    };
+    
+    enum VehicleArea : int32_t {
+        GLOBAL      = 0x01000000,
+        WINDOW      = 0x03000000,
+        MIRROR      = 0x04000000,
+        SEAT        = 0x05000000,
+        DOOR        = 0x06000000,
+        WHEEL       = 0x07000000,
+        MASK        = 0x0f000000,
+    };
+    
+    enum VehiclePropertyGroup : int32_t {
+        SYSTEM      = 0x10000000,
+        VENDOR      = 0x20000000,
+        MASK        = 0xf0000000,
+    };
+    
+    PERF_VEHICLE_SPEED = (
+            0x0207
+            | VehiclePropertyGroup:SYSTEM
+            | VehiclePropertyType:FLOAT
+            | VehicleArea:GLOBAL),
+
+
+set and read a properity from terminal
+---------------------------------------------
+dumpsys android.hardware.automotive.vehicle.IVehicle/default --get 0x11600207
+dumpsys android.hardware.automotive.vehicle.IVehicle/default --set 0x11600207 -f 100.0
