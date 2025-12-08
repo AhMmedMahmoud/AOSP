@@ -11,6 +11,7 @@ adb shell mount -o rw,remount /
 adb push arafa.txt /system/
 adb push SensorTaskTestApp.apk /system/priv-app/SensorTaskTestApp/
 adb push MathClientTestApp.apk /system/priv-app/MathClientTestApp/
+adb push CarSpeedDemo.apk /system/priv-app/CarSpeedDemo/
 
 installing in specific partition
 --------------------------------------------
