@@ -83,3 +83,6 @@ set and read a properity from terminal
 ---------------------------------------------
 dumpsys android.hardware.automotive.vehicle.IVehicle/default --get 0x11600207
 dumpsys android.hardware.automotive.vehicle.IVehicle/default --set 0x11600207 -f 100.0
+
+or 
+cmd car_service get-property-value 0x11600207
