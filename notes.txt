@@ -38,9 +38,10 @@ reboot
 adb shell <command>
 adb install -r CarSpeedDemo.apk
 
-how to know properity id
+how to calculate properity id
 ---------------------------------------------
 ID = 0x0207 | 0x10000000 | 0x00600000 | 0x01000000
+ID = 0x0308 | 0x10000000 | 0x00200000 | 0x01000000
 
 <AOSP-ROOT>/hardware/interfaces/automotive/vehicle/2.0/types.hal
     enum VehiclePropertyType : int32_t {
@@ -73,17 +74,40 @@ ID = 0x0207 | 0x10000000 | 0x00600000 | 0x01000000
         MASK        = 0xf0000000,
     };
     
+    /**
+     * Speed of the vehicle
+     *
+     * @change_mode VehiclePropertyChangeMode:CONTINUOUS
+     * @access VehiclePropertyAccess:READ
+     * @unit VehicleUnit:METER_PER_SEC
+     */
     PERF_VEHICLE_SPEED = (
-            0x0207
-            | VehiclePropertyGroup:SYSTEM
-            | VehiclePropertyType:FLOAT
-            | VehicleArea:GLOBAL),
+        0x0207
+        | VehiclePropertyGroup:SYSTEM
+        | VehiclePropertyType:FLOAT
+        | VehicleArea:GLOBAL),
 
+   /**
+     * Fuel door open
+     *
+     * @change_mode VehiclePropertyChangeMode:ON_CHANGE
+     * @access VehiclePropertyAccess:READ_WRITE
+     */
+    FUEL_DOOR_OPEN = (
+        0x0308
+        | VehiclePropertyGroup:SYSTEM
+        | VehiclePropertyType:BOOLEAN
+        | VehicleArea:GLOBAL),
 
 set and read a properity from terminal
 ---------------------------------------------
-dumpsys android.hardware.automotive.vehicle.IVehicle/default --get 0x11600207
-dumpsys android.hardware.automotive.vehicle.IVehicle/default --set 0x11600207 -f 100.0
+way 1 : 
+    dumpsys android.hardware.automotive.vehicle.IVehicle/default --get 0x11600207
+    dumpsys android.hardware.automotive.vehicle.IVehicle/default --set 0x11600207 -f 100.0
+way 2 : used for properties that have READ_WRITE ACCESS ONLY 
+    cmd car_service set-property-value 0x11200308 0 TRUE
+    cmd car_service get-property-value 0x11200308
 
-or 
-cmd car_service get-property-value 0x11600207
+list all properties from terminal and their ID, and area ID
+--------------------------------------------------------------
+dumpsys android.hardware.automotive.vehicle.IVehicle/default --list | grep -i vendor
