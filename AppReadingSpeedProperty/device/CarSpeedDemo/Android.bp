@@ -1,0 +1,30 @@
+android_app {
+
+    name: "CarSpeedDemo",
+
+    srcs: [
+        "src/**/*.java",
+    ],
+
+    resource_dirs: ["res"],
+
+    manifest: "AndroidManifest.xml",
+    
+    libs: [
+       "android.car", // this lib will provide Car APIs
+    ],
+    static_libs: [
+    "androidx-constraintlayout_constraintlayout-solver",
+    "androidx-constraintlayout_constraintlayout",
+    "androidx.appcompat_appcompat",
+    "com.google.android.material_material",
+    ],
+
+    platform_apis: true,
+    privileged: true,
+    certificate: "platform",
+
+    optimize: {
+        enabled: false,
+    },
+}
