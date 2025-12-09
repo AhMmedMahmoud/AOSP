@@ -1,0 +1,58 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/black">
+
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
+        android:layout_gravity="center" />
+
+    <ImageView
+        android:id="@+id/cevizlogoimageview"
+        android:layout_marginTop="100dp"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:src="@drawable/cevizlogoplain_exported" />
+
+    <com.mozcelikors.eap.SlidingMenu
+        android:id="@+id/slidingmenu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:scrollbars="none"
+        android:layout_gravity="center">
+
+        <com.mozcelikors.eap.AppListLinearLayout
+            android:id="@+id/applist1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="280dp"
+            android:orientation="horizontal">
+
+            <include layout="@layout/leftmenu"/>
+
+            <include layout="@layout/leftmenu" />
+
+            <include layout="@layout/leftmenu" />
+
+            <include layout="@layout/leftmenu" />
+
+            <include layout="@layout/leftmenu" />
+
+            <include layout="@layout/leftmenu" />
+
+            <include layout="@layout/leftmenu" />
+
+
+        </com.mozcelikors.eap.AppListLinearLayout>
+    </com.mozcelikors.eap.SlidingMenu>
+</RelativeLayout>
