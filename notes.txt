@@ -110,4 +110,4 @@ way 2 : used for properties that have READ_WRITE ACCESS ONLY
 
 list all properties from terminal and their ID, and area ID
 --------------------------------------------------------------
-dumpsys android.hardware.automotive.vehicle.IVehicle/default --list | grep -i vendor
+dumpsys android.hardware.automotive.vehicle.IVehicle/default --list
