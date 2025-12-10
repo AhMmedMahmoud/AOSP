@@ -1,0 +1,26 @@
+------------------------------------------------
+Checking Appending of properties
+------------------------------------------------
+dumpsys android.hardware.automotive.vehicle.IVehicle/default --list | grep -E '0x21402b00|0x21402b01'
+
+------------------------------------------------
+Property STATIC_READ_ONLY_PROPERTY
+------------------------------------------------
+cmd car_service set-property-value 0x21402b00 0 35
+
+cmd car_service get-property-value 0x21402b00
+
+dumpsys android.hardware.automotive.vehicle.IVehicle/default --set 0x21402b00 -i 47
+
+dumpsys android.hardware.automotive.vehicle.IVehicle/default --get 0x21402b00
+
+------------------------------------------------
+Property DYNAMIC_READ_WRITE_PROPERTY
+------------------------------------------------
+cmd car_service set-property-value 0x21402b01 0 35
+
+cmd car_service get-property-value 0x21402b01
+
+dumpsys android.hardware.automotive.vehicle.IVehicle/default --set 0x21402b01 -i 48
+
+dumpsys android.hardware.automotive.vehicle.IVehicle/default --get 0x21402b01
