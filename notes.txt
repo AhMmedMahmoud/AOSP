@@ -71,6 +71,7 @@ Property has:
 
 VHAL interface : vehicle hardware abstraction layer interface
 - this aidl interface defines the properties that OEMs can implement
+- lives in hardware/interfaces/automotive/vehicle/aidl/android/hardware/automotive/vehicle/IVehicle.aidl
 
 --------------------------------------------
 how to calculate properity id
