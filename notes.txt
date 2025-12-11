@@ -1,9 +1,11 @@
+--------------------------------------------
 flashing certain partition using adb
 --------------------------------------------
 adb reboot bootloader
 fastboot reboot fastboot
 fastboot flash system system.img
 
+--------------------------------------------
 remount the File System to be able to push or pull files
 --------------------------------------------
 adb root
@@ -13,6 +15,7 @@ adb push SensorTaskTestApp.apk /system/priv-app/SensorTaskTestApp/
 adb push MathClientTestApp.apk /system/priv-app/MathClientTestApp/
 adb push CarSpeedDemo.apk /system/priv-app/CarSpeedDemo/
 
+--------------------------------------------
 installing in specific partition
 --------------------------------------------
 vendor: false              --> vendor partition
@@ -21,12 +24,14 @@ device_specific: false     --> odm partition
 system_ext_specific: false --> system_ext partition
 if we donot choose any partition, it will be installed in system partition
 
+--------------------------------------------
 m, mm, mmm commands
 ---------------------------------------------
 m <module_name>                             : build certain module whatever the current location
 mm                                          : build the module at the current location
 mmm <path_of_module_relative_to_aosp_root>  : build the module at the given relative path 
 
+--------------------------------------------
 commands
 ---------------------------------------------
 service list
@@ -38,6 +43,36 @@ reboot
 adb shell <command>
 adb install -r CarSpeedDemo.apk
 
+--------------------------------------------
+VHAL Basics
+--------------------------------------------
+Property : any information that displayed by the car
+	- car speed
+	- status of driver door
+	- status of passenger door beside the driver
+	- status of passenger behind the driver 
+	- ..
+	- water level
+	- oil level
+	- tier pressure
+	- ...
+	- INFO_VIN
+	
+Property has: 
+- id
+- access level: read / read-write
+- areaIds
+- change mode : static / on chaneg
+- value : int32 / float / ... 
+- initial value
+- getter handling
+- setter handling
+- status : available / not supported
+
+VHAL interface : vehicle hardware abstraction layer interface
+- this aidl interface defines the properties that OEMs can implement
+
+--------------------------------------------
 how to calculate properity id
 ---------------------------------------------
 ID = 0x0207 | 0x10000000 | 0x00600000 | 0x01000000
@@ -99,8 +134,9 @@ ID = 0x0308 | 0x10000000 | 0x00200000 | 0x01000000
         | VehiclePropertyType:BOOLEAN
         | VehicleArea:GLOBAL),
 
+--------------------------------------------
 set and read a properity from terminal
----------------------------------------------
+--------------------------------------------
 way 1 : 
     dumpsys android.hardware.automotive.vehicle.IVehicle/default --get 0x11600207
     dumpsys android.hardware.automotive.vehicle.IVehicle/default --set 0x11600207 -f 100.0
@@ -108,6 +144,7 @@ way 2 : used for properties that have READ_WRITE ACCESS ONLY
     cmd car_service set-property-value 0x11200308 0 TRUE
     cmd car_service get-property-value 0x11200308
 
+--------------------------------------------
 list all properties from terminal and their ID, and area ID
 --------------------------------------------------------------
 dumpsys android.hardware.automotive.vehicle.IVehicle/default --list
