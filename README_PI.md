@@ -1,6 +1,8 @@
 ### AOSP Android 16 for Raspberry Pi 4 and Raspberry Pi 5.
 
 ***
+### Architecture
+<img width="957" height="673" alt="image" src="https://github.com/user-attachments/assets/7dc533b7-ffff-4ede-a337-4d7100fca2ce" />
 
 ### Building on Ubuntu 22.04 LTS:
 
