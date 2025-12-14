@@ -1,8 +1,6 @@
 # Fake VHAL – Quick Setup Guide
 
-This guide explains how to add two custom properties to the Fake Vehicle HAL:
-1) a static read-only property, and
-2) a read/write property that updates continuously.
+This guide explains how to add two custom properties to the Fake Vehicle HAL (a static read-only property and a read/write property that updates continuously).
 It also shows how to implement them in the Fake VHAL and test them from shell, Android apps,
 and native C++ code.
 
@@ -39,6 +37,7 @@ and native C++ code.
   - Connect to VHAL
   - Read your static property
   - Read and write your dynamic property
+
 
 
 
