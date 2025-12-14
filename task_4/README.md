@@ -27,7 +27,7 @@ and native C++ code.
 - Set value (only for writable property):
   `adb shell cmd car_service set-property-value <prop-id> <value>`
 
-## 4. Access from Android App
+## 4. Access from Java App
 - Use `CarPropertyManager` to:
   - Register a listener
   - Read your properties
@@ -38,5 +38,6 @@ and native C++ code.
   - Connect to VHAL
   - Read your static property
   - Read and write your dynamic property
+
 
 
