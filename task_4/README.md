@@ -31,7 +31,8 @@ and native C++ code.
   - Write to the writable one
 
 ## 5. Access from Native C++
-- Use `libvhalclient` to:
+- by binding directly to the VHAL AIDL service (IVehicle) and communicating through Binder IPC.
   - Connect to VHAL
   - Read your static property
   - Read and write your dynamic property
+
