@@ -145,7 +145,131 @@ way 2 : used for properties that have READ_WRITE ACCESS ONLY
     cmd car_service set-property-value 0x11200308 0 TRUE
     cmd car_service get-property-value 0x11200308
 
---------------------------------------------
+--------------------------------------------------------------
 list all properties from terminal and their ID, and area ID
 --------------------------------------------------------------
 dumpsys android.hardware.automotive.vehicle.IVehicle/default --list
+
+
+--------------------------------------------
+Aidl files supported by AOSP
+--------------------------------------------
+aosp16-ras/hardware/interfaces/automotive/vehicle/aidl/android/hardware/automotive/vehicle$ ls
+
+GetValueRequest.aidl        IVehicle.aidl                     RawPropValues.aidl     StatusCode.aidl                  VehiclePropConfig.aidl      VehiclePropertyChangeMode.aidl
+GetValueRequests.aidl       IVehicleCallback.aidl             SetValueRequest.aidl   SubscribeOptions.aidl            VehiclePropConfigs.aidl     VehiclePropertyStatus.aidl
+GetValueResult.aidl         MinMaxSupportedValueResult.aidl   SetValueRequests.aidl  SupportedValuesListResult.aidl   VehiclePropError.aidl       VehiclePropValue.aidl
+GetValueResults.aidl        MinMaxSupportedValueResults.aidl  SetValueResult.aidl    SupportedValuesListResults.aidl  VehiclePropErrors.aidl      VehiclePropValues.aidl
+HasSupportedValueInfo.aidl  PropIdAreaId.aidl                 SetValueResults.aidl   VehicleAreaConfig.aidl           VehiclePropertyAccess.aidl
+
+--------------------------------------------
+The VHAL functions
+--------------------------------------------
+- VHAL functions are defined at IVehicle.aidl
+- VHAL is asynchronous. Results are returned via callbacks, not directly.
+
+-----------------------------
+Content of IVehicle.aidl
+-----------------------------
+package android.hardware.automotive.vehicle;
+
+// Vehicle HAL interface.
+@VintfStability
+interface IVehicle {
+    /**
+     * Returns a list of all property configurations supported by this vehicle HAL.
+     */
+    VehiclePropConfigs getAllPropConfigs();
+
+    /**
+     * Returns a list of property configurations for given properties.
+     */
+    VehiclePropConfigs getPropConfigs(in int[] props);
+
+    /**
+     * Get vehicle property values asynchronously.
+     */
+    void getValues(IVehicleCallback callback, in GetValueRequests requests);
+
+    /**
+     * Set vehicle property values.
+     */
+    void setValues(IVehicleCallback callback, in SetValueRequests requests);
+
+    /**
+     * Subscribes to property events.
+     */
+    void subscribe(in IVehicleCallback callback, in SubscribeOptions[] options, int maxSharedMemoryFileCount);
+
+    /**
+     * Unsubscribes from property events.
+     */
+    void unsubscribe(in IVehicleCallback callback, in int[] propIds);
+
+    /**
+     * Return a shared memory file back to VHAL for recycle.
+     */
+    void returnSharedMemory(in IVehicleCallback callback, long sharedMemoryId);
+
+    /**
+     * Gets the supported values lists for [propId, areaId]s.
+     */
+    SupportedValuesListResults getSupportedValuesLists(in List<PropIdAreaId> propIdAreaIds);
+
+    /**
+     * Gets the min/max supported values for [propId, areaId]s.
+     */
+    MinMaxSupportedValueResults getMinMaxSupportedValue(in List<PropIdAreaId> propIdAreaIds);
+
+    /**
+     * Registers the supported value change callback.
+     */
+    void registerSupportedValueChangeCallback(in IVehicleCallback callback, in List<PropIdAreaId> propIdAreaIds);
+
+    /**
+     * Unregisters the supported value change callback.
+     */
+    void unregisterSupportedValueChangeCallback(in IVehicleCallback callback, in List<PropIdAreaId> propIdAreaIds);
+}
+
+-----------------------------
+Content of IVehicleCallback.aidl
+-----------------------------
+package android.hardware.automotive.vehicle;
+
+@VintfStability
+interface IVehicleCallback {
+    /**
+     * Callback for {@link IVehicle#getValues} function.
+     */
+    oneway void onGetValues(in GetValueResults responses);
+
+    /**
+     * Callback for {@link IVehicle#setValues} function.
+     */
+    oneway void onSetValues(in SetValueResults responses);
+
+    /**
+     * Event callback happens whenever one or more variables that the API user
+     * has subscribed to need to be reported. This may be based purely on
+     * threshold and frequency (a regular subscription, see subscribe call's
+     * arguments) or when the {@link IVehicle#setValues} method was called and
+     * the actual change needs to be reported.
+     */
+    oneway void onPropertyEvent(in VehiclePropValues propValues, int sharedMemoryFileCount);
+
+    /**
+     * Set property value is usually asynchronous operation. Thus even if
+     * client received {@link StatusCode#OK} from {@link IVehicle#setValues}, or
+     * received {@link StatusCode#OK} in {@link #onSetValues}, this doesn't
+     * guarantee that the value was successfully propagated to the vehicle
+     * network. If such rare event occurs this method must be called.
+     */
+    oneway void onPropertySetError(in VehiclePropErrors errors);
+
+    /**
+     * Called when the min/max supported value or supported value list for
+     * the registered [propId, areaId]s changes.
+     */
+    oneway void onSupportedValueChange(in List<PropIdAreaId> propIdAreaIds);
+}
