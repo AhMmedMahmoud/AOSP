@@ -5,6 +5,9 @@ This guide explains how to add two custom properties to the Fake Vehicle HAL:
 It also shows how to implement them in the Fake VHAL and test them from shell, Android apps,
 and native C++ code.
 
+## 0. Architecture
+<img width="710" height="603" alt="image" src="https://github.com/user-attachments/assets/5497b23e-ddee-460c-ba30-69ab878bf520" />
+
 ## 1. Add New Test Properties
 1. Open `TestVendorProperty.aidl` and define:
    - One static read-only property
@@ -35,4 +38,5 @@ and native C++ code.
   - Connect to VHAL
   - Read your static property
   - Read and write your dynamic property
+
 
