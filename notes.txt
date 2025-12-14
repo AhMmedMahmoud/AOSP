@@ -69,9 +69,16 @@ Property has:
 - setter handling
 - status : available / not supported
 
+VHAL : vehicle hardware abstraction layer (C++ layer)
+- this layer 
+   - is the HAL layer in Android Automotive 
+   - abstracts vehicle hardware (CAN, ECUs, sensors, actuators) and shows them to Android as standardized “vehicle properties”.
+
 VHAL interface : vehicle hardware abstraction layer interface
-- this aidl interface defines the properties that OEMs can implement
-- lives in hardware/interfaces/automotive/vehicle/aidl/android/hardware/automotive/vehicle/IVehicle.aidl
+- this aidl interface 
+   - lives in hardware/interfaces/automotive/vehicle/aidl/android/hardware/automotive/vehicle/IVehicle.aidl
+   - defines the properties that OEMs can implement
+   - defines functions that we can use to get or set or subscribe to properties asynchronously
 
 --------------------------------------------
 how to calculate properity id
@@ -149,7 +156,6 @@ way 2 : used for properties that have READ_WRITE ACCESS ONLY
 list all properties from terminal and their ID, and area ID
 --------------------------------------------------------------
 dumpsys android.hardware.automotive.vehicle.IVehicle/default --list
-
 
 --------------------------------------------
 Aidl files supported by AOSP
