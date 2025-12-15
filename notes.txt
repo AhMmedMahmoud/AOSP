@@ -71,6 +71,85 @@ adb shell <command>
 adb install -r CarSpeedDemo.apk
 
 --------------------------------------------
+Some Of Services
+--------------------------------------------
+// added during tasks
+123     example.service.api.IExampleService/default: [example.service.api.IExampleService]
+10      android.app.sensortask.ITemperatureService/default: [android.app.sensortask.ITemperatureService]
+159     math: [android.app.math.IMathServiceManager]
+228     sensor_task: [android.app.sensortask.ISensorTaskService]
+
+// VHAL service in c++
+26      android.hardware.automotive.vehicle.IVehicle/default: [android.hardware.automotive.vehicle.IVehicle]
+
+// wrapper over VHAL service in java
+89      car_service: [android.car.ICar]
+
+// most used 
+7       adb: [android.debug.IAdbManager]
+156     logcat: [android.os.logcat.ILogcatManagerService]
+178     mount: [android.os.storage.IStorageManager]
+
+// important services that we always used in any android device
+270     usb: [android.hardware.usb.IUsbManager]
+281     wifi: [android.net.wifi.IWifiManager]
+113     display: [android.hardware.display.IDisplayManager]
+145     ipsec: [android.net.IIpSecService]
+231     servicediscovery: [android.net.nsd.INsdManager]
+232     settings: []
+220     scheduling_policy: [android.os.ISchedulingPolicyService]
+222     search: [android.app.ISearchManager]
+261     time_detector: [android.app.timedetector.ITimeDetectorService]
+238     speech_recognition: [android.speech.IRecognitionServiceManager]
+205     power: [android.os.IPowerManager]
+153     location: [android.location.ILocationManager]
+75      audio: [android.media.IAudioService]
+262     time_zone_detector: [android.app.timezonedetector.ITimeZoneDetectorService]
+230     serial: [android.hardware.ISerialManager]
+149     launcherapps: [android.content.pm.ILauncherApps]
+27      android.hardware.bluetooth.IBluetoothHci/default: [android.hardware.bluetooth.IBluetoothHci]
+28      android.hardware.bluetooth.audio.IBluetoothAudioProviderFactory/default: [android.hardware.bluetooth.audio.IBluetoothAudioProviderFactory]
+29      android.hardware.broadcastradio.IBroadcastRadio/amfm: [android.hardware.broadcastradio.IBroadcastRadio]
+30      android.hardware.broadcastradio.IBroadcastRadio/dab: [android.hardware.broadcastradio.IBroadcastRadio]
+31      android.hardware.camera.provider.ICameraProvider/external/0: [android.hardware.camera.provider.ICameraProvider]
+32      android.hardware.camera.provider.ICameraProvider/libcamera/0: [android.hardware.camera.provider.ICameraProvider]
+23      android.hardware.automotive.can.ICanController/default: [android.hardware.automotive.can.ICanController]
+12      android.automotive.watchdog.ICarWatchdog/default: [android.automotive.watchdog.ICarWatchdog]
+13      android.automotive.watchdog.internal.ICarWatchdog/default: [android.automotive.watchdog.internal.ICarWatchdog]
+9       alarm: [android.app.IAlarmManager]
+4       account: [android.accounts.IAccountManager]
+5       activity: [android.app.IActivityManager]
+6       activity_task: [android.app.IActivityTaskManager]
+42      android.hardware.power.IPower/default: [android.hardware.power.IPower]
+52      android.hardware.usb.IUsb/default: [android.hardware.usb.IUsb]
+51      android.hardware.tv.hdmi.connection.IHdmiConnection/default: [android.hardware.tv.hdmi.connection.IHdmiConnection]
+49      android.hardware.thermal.IThermal/default: [android.hardware.thermal.IThermal]
+54      android.hardware.wifi.IWifi/default: [android.hardware.wifi.IWifi]
+77      autofill: [android.view.autofill.IAutoFillManager]
+79      battery: []
+80      batteryproperties: [android.os.IBatteryPropertiesRegistrar]
+81      batterystats: [com.android.internal.app.IBatteryStats]
+82      binder_calls_stats: []
+85      bluetooth_manager: [android.bluetooth.IBluetoothManager]
+86      broadcastradio: [android.hardware.radio.IRadioService]
+101     cpuinfo: []
+100     cpu_monitor: []
+131     gpu: [android.graphicsenv.IGpuService]
+133     graphicsstats: [android.view.IGraphicsStats]
+135     hdmi_control: [android.hardware.hdmi.IHdmiControlService]
+140     input: [android.hardware.input.IInputManager]
+186     network_stack: [android.net.INetworkStackConnector]
+189     notification: [android.app.INotificationManager]
+199     permission_checker: [android.permission.IPermissionChecker]
+201     phone: [com.android.internal.telephony.ITelephony]
+284     window: [android.view.IWindowManager]
+126     file_integrity: [android.security.IFileIntegrityService]
+87      bugreport: [android.os.IDumpstate]
+88      cacheinfo: []
+71      app_integrity: [android.content.integrity.IAppIntegrityManager]
+72      app_search: [android.app.appsearch.aidl.IAppSearchManager]
+
+--------------------------------------------
 VHAL Basics
 --------------------------------------------
 Property : any information that displayed by the car
