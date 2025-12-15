@@ -69,6 +69,10 @@ logcat                                (services logs)
 reboot
 adb shell <command>
 adb install -r CarSpeedDemo.apk
+su
+getenforce
+setenforce 0
+setenforce 1
 
 --------------------------------------------
 Some Of Services
