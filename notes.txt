@@ -73,6 +73,8 @@ su
 getenforce
 setenforce 0
 setenforce 1
+adb pull /sys/fs/selinux/policy
+adb logcat -b events -d | audit2allow -p policy
 
 --------------------------------------------
 Some Of Services
