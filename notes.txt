@@ -102,6 +102,9 @@ Some Of Services
 261     time_detector: [android.app.timedetector.ITimeDetectorService]
 238     speech_recognition: [android.speech.IRecognitionServiceManager]
 205     power: [android.os.IPowerManager]
+206     powerstats: [android.os.IPowerStatsService]
+207     processinfo: [android.os.IProcessInfoService]
+208     procstats: [com.android.internal.app.procstats.IProcessStats]
 153     location: [android.location.ILocationManager]
 75      audio: [android.media.IAudioService]
 262     time_zone_detector: [android.app.timezonedetector.ITimeZoneDetectorService]
@@ -139,6 +142,7 @@ Some Of Services
 135     hdmi_control: [android.hardware.hdmi.IHdmiControlService]
 140     input: [android.hardware.input.IInputManager]
 186     network_stack: [android.net.INetworkStackConnector]
+183     netstats: [android.net.INetworkStatsService]
 189     notification: [android.app.INotificationManager]
 199     permission_checker: [android.permission.IPermissionChecker]
 201     phone: [com.android.internal.telephony.ITelephony]
@@ -148,6 +152,13 @@ Some Of Services
 88      cacheinfo: []
 71      app_integrity: [android.content.integrity.IAppIntegrityManager]
 72      app_search: [android.app.appsearch.aidl.IAppSearchManager]
+21      android.frameworks.vibrator.IVibratorControlService/default: [android.frameworks.vibrator.IVibratorControlService]
+92      color_display: [android.hardware.display.IColorDisplayManager]
+151     lights: [android.hardware.lights.ILightsManager]
+39      android.hardware.light.ILights/default: [android.hardware.light.ILights]
+192     overlay: [android.content.om.IOverlayManager]
+253     telecom: [com.android.internal.telecom.ITelecomService]
+271     user: [android.os.IUserManager]
 
 --------------------------------------------
 VHAL Basics
