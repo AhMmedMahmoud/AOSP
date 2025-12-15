@@ -159,6 +159,15 @@ Some Of Services
 192     overlay: [android.content.om.IOverlayManager]
 253     telecom: [com.android.internal.telecom.ITelecomService]
 271     user: [android.os.IUserManager]
+276     voiceinteraction: [com.android.internal.app.IVoiceInteractionManagerService]
+273     vibrator_manager: [android.os.IVibratorManagerService]
+274     virtualdevice: [android.companion.virtual.IVirtualDeviceManager]
+278     vpn_management: [android.net.IVpnManager]
+194     package: [android.content.pm.IPackageManager]
+184     network_management: [android.os.INetworkManagementService]
+111     devicestoragemonitor: []
+112     diskstats: []
+122     ethernet: [android.net.IEthernetManager]
 
 --------------------------------------------
 VHAL Basics
