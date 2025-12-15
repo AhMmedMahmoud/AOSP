@@ -81,7 +81,6 @@ VHAL interface : vehicle hardware abstraction layer interface
    - defines and maintain the properties that OEMs can implement
    - defines functions that we can use to get or set or subscribe to properties asynchronously
    
-
 --------------------------------------------
 how to calculate properity id
 ---------------------------------------------
