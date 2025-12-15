@@ -1,4 +1,31 @@
 --------------------------------------------
+Android VS Linux
+--------------------------------------------
+C Library: 
+- Android uses the Bionic C library, which is more memory-efficient and CPU-friendly than c libraries used by linux
+- Linux uses the glibc and musl librarie
+
+Scheduling Mechanisms: 
+- Both systems use the Completely Fair Scheduler (CFS), which can lead to process starvation due to its non-real-time nature.
+
+Memory Management: Android's Low Memory Killer automatically terminates low-priority applications to manage limited resources effectively.
+
+Power Management: The 'suspend to RAM' feature allows Android to enter a low-power state while maintaining the state of running processes, which is more utilized than in traditional Linux.
+
+Wakelocks: These are crucial in Android to keep the system awake while essential tasks are processed.
+
+Inter-Process Communication (IPC): 
+- Android uses the Binder IPC system (Kernel driver) for efficient communication between applications
+- Linux uses the System V IPC for communication between applications
+
+Hardware Abstraction Layer (HAL): HAL manages hardware resource access, preventing conflicts between applications.
+
+Logging Mechanisms: 
+- kernel logs: dmesg in both android and linux
+- service logs: jounalctl in linux
+                logcat in android     (data is handled through a circular buffer)
+
+--------------------------------------------
 flashing certain partition using adb
 --------------------------------------------
 adb reboot bootloader
