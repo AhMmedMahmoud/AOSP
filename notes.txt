@@ -76,9 +76,11 @@ VHAL : vehicle hardware abstraction layer (C++ layer)
 
 VHAL interface : vehicle hardware abstraction layer interface
 - this aidl interface 
+   - is the aidl interface for a native service called aidl/android/hardware/automotive/vehicle/IVehicle/default
    - lives in hardware/interfaces/automotive/vehicle/aidl/android/hardware/automotive/vehicle/IVehicle.aidl
-   - defines the properties that OEMs can implement
+   - defines and maintain the properties that OEMs can implement
    - defines functions that we can use to get or set or subscribe to properties asynchronously
+   
 
 --------------------------------------------
 how to calculate properity id
