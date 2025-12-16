@@ -201,7 +201,8 @@ Some Of Services
 VHAL Basics
 --------------------------------------------
 Property : any information that displayed by the car
-	- car speed
+	- car speed  (VEHICLE_SPEED)
+    - engine rpm (ENGINE_RPM)
 	- status of driver door
 	- status of passenger door beside the driver
 	- status of passenger behind the driver 
@@ -211,12 +212,13 @@ Property : any information that displayed by the car
 	- tier pressure
 	- ...
 	- INFO_VIN
+    - hvac temperature (HVAC_TEMPERATURE_SET)
 	
-Property has: 
+Each property has: 
 - id
-- access level: read / read-write
+- access level: read / write / read-write
 - areaIds
-- change mode : static / on chaneg
+- change mode : static / on change / continuous
 - value : int32 / float / ... 
 - initial value
 - getter handling
