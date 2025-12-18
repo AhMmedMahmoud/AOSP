@@ -42,7 +42,7 @@ a JNI layer is implemented to map Java service calls directly to the correspondi
 │       ├── temperature_service_user_app
 │       |   ├── Android.bp
 │       |   └── main.cpp
-|       └── packages/apps/SensorTaskTestApp
+|       └── SensorTaskTestApp
 │           ├── Android.bp
 │           ├── AndroidManifest.xml
 │           └── src/com/example/sensortasktest/MainActivity.java
