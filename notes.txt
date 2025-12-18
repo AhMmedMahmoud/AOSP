@@ -437,13 +437,12 @@ interface IVehicleCallback {
     oneway void onSupportedValueChange(in List<PropIdAreaId> propIdAreaIds);
 }
 
----------------------------------
-creating single image for rpi5
----------------------------------
+------------------------------------
+creating single image for rpi4/rpi5
+------------------------------------
 we need images: boot.img, system.img and vendor.img
 we need to install some dependencies using: sudo apt-get install dosfstools e2fsprogs fdisk kpartx mtools rsync
 
-for RPI5
-./scripts/rpi5-mkimg.sh <path_to_directory_contains_images>
+./scripts/rpi-mkimg.sh <path_to_directory_contains_images>
 
 
