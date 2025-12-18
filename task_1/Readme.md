@@ -6,13 +6,6 @@ This project demonstrates adding a native shared library and a binary to the AOS
 - `math_lib` shared library (provides `add(a, b)`)
 - `simple_calculator` binary (uses the library)
 - `aosp_rpi5_car.mk` update (adds app to vendor image)
-- `setup.sh` (copies required files into AOSP tree)
-
-## How to Integrate into AOSP
-```
-cd device/task_1
-./setup.sh /path/to/AOSP
-```
 
 ## Build
 ```

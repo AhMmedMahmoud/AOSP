@@ -40,18 +40,12 @@ a JNI layer is implemented to map Java service calls directly to the correspondi
 │       │   │       └── TemperatureService.cpp
 │       │   └── temperature_service.rc
 │       ├── temperature_service_user_app
-│       │   ├── Android.bp
-│       │   └── main.cpp
-│       └── to_append
-│           ├── device/brcm/rpi5
-│           │   ├── aosp_rpi5_car.mk
-│           │   ├── manifest.xml
-│           │   └── sepolicy/service_contexts
-│           └── system/sepolicy/vendor
-│               ├── domain.te
-│               ├── file_contexts
-│               ├── service.te
-│               └── temperature_service.te
+│       |   ├── Android.bp
+│       |   └── main.cpp
+|       └── packages/apps/SensorTaskTestApp
+│           ├── Android.bp
+│           ├── AndroidManifest.xml
+│           └── src/com/example/sensortasktest/MainActivity.java
 ├── frameworks
 │   └── base
 │       ├── core/java/android/app/sensortask
@@ -68,10 +62,16 @@ a JNI layer is implemented to map Java service calls directly to the correspondi
 │       │   ├── com_android_server_sensortask_SensorTaskService.cpp
 │       │   └── onload.cpp
 │       └── services/java/com/android/server/SystemServer.java
-└── packages/apps/SensorTaskTestApp
-    ├── Android.bp
-    ├── AndroidManifest.xml
-    └── src/com/example/sensortasktest/MainActivity.java
+└── to_append
+    ├── device/brcm/rpi5
+    │   ├── aosp_rpi5_car.mk
+    │   ├── manifest.xml
+    │   └── sepolicy/service_contexts
+    └── system/sepolicy/vendor
+        ├── domain.te
+        ├── file_contexts
+        ├── service.te
+        └── temperature_service.te
 ```
 
 ------------------------------------------------------------
