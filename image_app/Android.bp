@@ -1,0 +1,21 @@
+android_app {
+    name: "FullscreenImage",
+    
+    srcs: ["src/**/*.java"],
+    
+    resource_dirs: ["res"],
+    
+    manifest: "AndroidManifest.xml",
+    
+    platform_apis: true,
+    certificate: "platform",
+    privileged: true,
+    
+    optimize: {
+        enabled: false,
+    },
+    
+    dex_preopt: {
+        enabled: false,
+    },
+}
